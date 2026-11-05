@@ -1,0 +1,151 @@
+<!--meta {
+  "title": "Contacto y solicitud de cotización | GEA Environment",
+  "description": "Solicite información o una cotización de servicios de manejo de residuos, capacitación, asesoría y trámites ambientales con GEA Environment.",
+  "nav": "contacto",
+  "priority": "0.9",
+  "breadcrumbs": [{ "label": "Contacto", "href": "contacto.html" }]
+} -->
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <p class="eyebrow">Contacto</p>
+    <h1 id="page-title">Solicite información o una cotización</h1>
+    <p class="lead">Cuéntenos qué necesita su empresa. Mientras más detalle comparta sobre sus residuos o requisitos, más precisa podrá ser la propuesta.</p>
+  </div>
+</section>
+
+<section class="section section-tight" aria-label="Formulario y datos de contacto">
+  <div class="container contact-grid">
+    <div class="form-card">
+      <h2 class="h3-like" id="form-title">Formulario de solicitud</h2>
+      <p class="form-intro">Los campos marcados con <span class="req" aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+      {{formNotice}}
+
+      <div class="alert alert-error" id="form-errors" tabindex="-1" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <div>
+          <strong id="form-errors-title">Revise los siguientes campos:</strong>
+          <ul id="form-errors-list"></ul>
+        </div>
+      </div>
+
+      <div class="alert" id="form-result" tabindex="-1" role="status" hidden></div>
+
+      <form id="quote-form" class="form" method="post" action="{{formEndpoint}}" data-endpoint="{{formEndpoint}}" novalidate aria-labelledby="form-title">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="120" aria-describedby="f-nombre-error">
+            <p class="field-error" id="f-nombre-error"></p>
+          </div>
+          <div class="field">
+            <label for="f-empresa">Empresa u organización <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-empresa" name="empresa" type="text" autocomplete="organization" required maxlength="160" aria-describedby="f-empresa-error">
+            <p class="field-error" id="f-empresa-error"></p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-correo">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-correo" name="correo" type="email" autocomplete="email" required maxlength="160" aria-describedby="f-correo-hint f-correo-error">
+            <p class="field-hint" id="f-correo-hint">Ejemplo: nombre@empresa.com</p>
+            <p class="field-error" id="f-correo-error"></p>
+          </div>
+          <div class="field">
+            <label for="f-telefono">Teléfono <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required maxlength="25" aria-describedby="f-telefono-hint f-telefono-error">
+            <p class="field-hint" id="f-telefono-hint">10 dígitos; puede incluir lada o extensión.</p>
+            <p class="field-error" id="f-telefono-error"></p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-puesto">Puesto <span class="optional">(opcional)</span></label>
+            <input id="f-puesto" name="puesto" type="text" autocomplete="organization-title" maxlength="120">
+          </div>
+          <div class="field">
+            <label for="f-ubicacion">Ciudad y estado de sus instalaciones <span class="optional">(opcional)</span></label>
+            <input id="f-ubicacion" name="ubicacion" type="text" autocomplete="address-level2" maxlength="160">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="f-servicio">Servicio de interés <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-servicio" name="servicio" required aria-describedby="f-servicio-error">
+              <option value="">Seleccione una opción</option>
+              <option value="residuos-peligrosos">Manejo de residuos peligrosos</option>
+              <option value="rpbi">Manejo de RPBI</option>
+              <option value="residuos-manejo-especial">Residuos de manejo especial</option>
+              <option value="capacitacion">Capacitación y asesoría ambiental</option>
+              <option value="tramites">Trámites y servicios complementarios</option>
+              <option value="varios">Varios servicios</option>
+              <option value="no-se">No estoy seguro / necesito orientación</option>
+            </select>
+            <p class="field-error" id="f-servicio-error"></p>
+          </div>
+          <div class="field">
+            <label for="f-frecuencia">Frecuencia estimada <span class="optional">(opcional)</span></label>
+            <select id="f-frecuencia" name="frecuencia">
+              <option value="">Seleccione una opción</option>
+              <option value="unica">Servicio único o puntual</option>
+              <option value="periodica">Servicio periódico</option>
+              <option value="por-definir">Por definir</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-mensaje">Descripción de su necesidad <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="f-mensaje" name="mensaje" rows="6" required minlength="20" maxlength="3000" aria-describedby="f-mensaje-hint f-mensaje-count f-mensaje-error"></textarea>
+          <p class="field-hint" id="f-mensaje-hint">Indique, por ejemplo, el tipo de residuo o trámite, la cantidad aproximada y cualquier plazo que deba cumplir.</p>
+          <p class="field-count" id="f-mensaje-count" aria-live="polite">0 / 3000 caracteres</p>
+          <p class="field-error" id="f-mensaje-error"></p>
+        </div>
+
+        <!-- Campo trampa contra envíos automáticos: debe permanecer vacío -->
+        <div class="hp" aria-hidden="true">
+          <label for="f-sitio">No llene este campo</label>
+          <input id="f-sitio" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field field-check">
+          <input id="f-privacidad" name="privacidad" type="checkbox" value="acepto" required aria-describedby="f-privacidad-error">
+          <label for="f-privacidad">He leído y acepto el <a href="aviso-de-privacidad.html" target="_blank" rel="noopener">aviso de privacidad<span class="sr-only"> (abre en una pestaña nueva)</span></a>. <span class="req" aria-hidden="true">*</span></label>
+          <p class="field-error" id="f-privacidad-error"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="form-submit">
+          <span class="btn-label">Enviar solicitud</span>
+        </button>
+      </form>
+      <noscript><p class="note">Para validar y enviar el formulario es necesario habilitar JavaScript en su navegador.</p></noscript>
+    </div>
+
+    <aside class="contact-aside" aria-labelledby="datos-title">
+      <h2 class="h3-like" id="datos-title">Datos de contacto</h2>
+      <ul class="contact-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><div><span class="contact-label">Teléfono</span>{{contact:phone}}</div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><div><span class="contact-label">WhatsApp</span>{{contact:whatsapp}}</div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><div><span class="contact-label">Correo electrónico</span>{{contact:email}}</div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><div><span class="contact-label">Dirección</span>{{contact:address}}</div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><div><span class="contact-label">Horario de atención</span>{{contact:hours}}</div></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><div><span class="contact-label">Cobertura</span>{{contact:coverage}}</div></li>
+      </ul>
+      <div class="aside-box">
+        <h3 class="h4-like">¿Qué sucede después?</h3>
+        <p>El equipo de GEA revisará su solicitud y le contactará para conocer los detalles y definir el alcance del servicio.</p>
+        <p>Tiempo de respuesta: {{contact:responseTime}}</p>
+      </div>
+      <div class="aside-box">
+        <h3 class="h4-like">Redes sociales</h3>
+        {{social}}
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script src="assets/js/form.js" defer></script>

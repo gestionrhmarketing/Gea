@@ -1,0 +1,37 @@
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="GEA Environment — Ir al inicio">
+      <img src="assets/img/logo-gea-provisional-200.png" width="200" height="205" alt="" class="brand-logo">
+      <span class="brand-text"><span class="brand-name">GEA Environment</span><span class="brand-tag">Gestión ambiental</span></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+      <span class="nav-toggle-label">Menú</span>
+    </button>
+
+    <nav class="primary-nav" id="menu-principal" aria-label="Navegación principal" data-nav>
+      <ul class="nav-list">
+        <li><a href="index.html" {{nav:inicio}}>Inicio</a></li>
+        <li><a href="nosotros.html" {{nav:nosotros}}>Nosotros</a></li>
+        <li class="has-sub" data-sub>
+          <a href="servicios.html" {{nav:servicios}}>Servicios</a>
+          <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="submenu-servicios" data-sub-toggle>
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="sr-only">Mostrar servicios</span>
+          </button>
+          <ul class="sub-menu" id="submenu-servicios">
+            <li><a href="residuos-peligrosos.html" {{nav:peligrosos}}>Residuos peligrosos</a></li>
+            <li><a href="rpbi.html" {{nav:rpbi}}>Residuos biológico-infecciosos (RPBI)</a></li>
+            <li><a href="residuos-manejo-especial.html" {{nav:manejo-especial}}>Residuos de manejo especial</a></li>
+            <li><a href="capacitacion-asesoria-ambiental.html" {{nav:capacitacion}}>Capacitación y asesoría ambiental</a></li>
+            <li><a href="tramites-ambientales.html" {{nav:tramites}}>Trámites y servicios complementarios</a></li>
+          </ul>
+        </li>
+        <li><a href="contacto.html" {{nav:contacto}}>Contacto</a></li>
+      </ul>
+      <a class="btn btn-primary nav-cta" href="contacto.html">Solicitar cotización</a>
+    </nav>
+  </div>
+</header>
+{{> icons}}
