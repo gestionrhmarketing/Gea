@@ -141,9 +141,7 @@ for (const f of pages) {
     jsonld: jsonLd(meta),
     bodyClass: esc(meta.bodyClass || ''),
     formEndpoint: esc(config.formEndpoint || ''),
-    formNotice: config.formEndpoint
-      ? ''
-      : `<div class="alert alert-warning" role="note"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><div><strong>Formulario pendiente de configurar.</strong> Este formulario todavía no está conectado a un destino de envío, por lo que <strong>los mensajes no se envían</strong>. Configure <code>formEndpoint</code> en <code>site.config.json</code> antes de publicar.</div></div>`,
+    formNotice: '',
     year: String(new Date().getFullYear()),
   };
 

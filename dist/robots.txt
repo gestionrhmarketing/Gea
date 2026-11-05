@@ -1,3 +1,4 @@
-# Modo borrador: se bloquea la indexación hasta publicar (draft=false en site.config.json)
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://dominio-por-confirmar.example/sitemap.xml

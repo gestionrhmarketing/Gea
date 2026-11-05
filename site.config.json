@@ -1,7 +1,7 @@
 {
   "_instrucciones": "Edita estos valores y ejecuta `npm run build`. Cualquier valor que empiece con '[' se muestra en el sitio como dato pendiente (resaltado). Deja formEndpoint vacío hasta conectar un servicio de envío real.",
 
-  "draft": true,
+  "draft": false,
 
   "siteName": "GEA Environment",
   "legalName": "[RAZÓN SOCIAL POR CONFIRMAR]",
